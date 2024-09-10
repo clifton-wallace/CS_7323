@@ -29,7 +29,8 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.imageModel.imageNames.count
+            //2.5 - Update To Use New Method
+            return self.imageModel.numberOfImages()
         }
         
         return 1
@@ -42,10 +43,12 @@ class TableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageNameCell", for: indexPath)
             
             // Configure the cell...
-            if let name = self.imageModel.imageNames[indexPath.row] as? String {
-                cell.textLabel!.text = name
-            }
-            
+            //2.5 - Update To Use New Method
+            //It Is Trippy That Swift Changes The Objective C Method Names
+            //Remove If A New Method Does Not Return An Optional Type (Signature From PDF)
+            let name = self.imageModel.getImageName(for: indexPath.row)
+            cell.textLabel!.text = name
+                    
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath)

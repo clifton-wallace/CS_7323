@@ -33,16 +33,17 @@ class CollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageModel.imageNames.count
+        //2.6 - Changed To Use New Method
+        return self.imageModel.numberOfImages()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CollectionViewCell {
-            
-            if let name = self.imageModel.imageNames[indexPath.row] as? String{
-                cell.imageView.image = self.imageModel.getImageWithName(name)
-            }
+            //2.6 - Changed To Use New Method
+            //Remove If As New Method Does Not Return Optional
+            let image = self.imageModel.getImageWith(indexPath.row)
+            cell.imageView.image = image
             
             return cell
         }else{
