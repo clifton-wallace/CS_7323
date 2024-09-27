@@ -2,7 +2,7 @@
 //  AudioModel.swift
 //  AudioLabSwift
 //
-//  Created by Eric Larson 
+//  Created by Eric Larson
 //  Copyright © 2020 Eric Larson. All rights reserved.
 //
 
@@ -41,9 +41,15 @@ class AudioModel {
     }
     
     // public function for playing from a file reader file
-    func startProcesingAudioFileForPlayback(){
+    func startProcesingAudioFileForPlayback(withFps:Double){
         self.audioManager?.outputBlock = self.handleSpeakerQueryWithAudioFile
         self.fileReader?.play()
+        
+        // repeat this fps times per second using the timer class
+        Timer.scheduledTimer(timeInterval: 1.0/withFps, target: self,
+                            selector: #selector(self.runEveryIntervalOutput),
+                            userInfo: nil,
+                            repeats: true)
     }
     
     func startProcessingSinewaveForPlayback(withFreq:Float=330.0){
@@ -85,24 +91,24 @@ class AudioModel {
     // for sliding max windows, you might be interested in the following: vDSP_vswmax
     
     func getWindowedFrequency() -> [Float] {
-        guard fftData.count >= WINDOW_COUNT else { return [] }
-        
-        let windowSize = fftData.count / WINDOW_COUNT
-        var maxArray = [Float]()
-        
-        for i in 0..<WINDOW_COUNT {
-            let start = i * windowSize
-            let end = min(start + windowSize, fftData.count)
+            guard fftData.count >= WINDOW_COUNT else { return [] }
             
-            let window = Array(fftData[start..<end])
+            let windowSize = fftData.count / WINDOW_COUNT
+            var maxArray = [Float]()
+            
+            for i in 0..<WINDOW_COUNT {
+                let start = i * windowSize
+                let end = min(start + windowSize, fftData.count)
+                
+                let window = Array(fftData[start..<end])
 
-            if let maxVal = window.max() {
-                maxArray.append(maxVal)
+                if let maxVal = window.max() {
+                    maxArray.append(maxVal)
+                }
             }
-        }
 
-        return maxArray
-    }
+            return maxArray
+        }
     
     //==========================================
     // MARK: Private Properties
@@ -129,7 +135,7 @@ class AudioModel {
     // MARK: Private Methods
     private lazy var fileReader:AudioFileReader? = {
         
-        if let url = Bundle.main.url(forResource: "satisfaction", withExtension: "mp3"){
+        if let url = Bundle.main.url(forResource: "orion", withExtension: "mp3"){
             var tmpFileReader:AudioFileReader? = AudioFileReader.init(audioFileURL: url,
                                                    samplingRate: Float(audioManager!.samplingRate),
                                                    numChannels: audioManager!.numOutputChannels)
@@ -155,11 +161,23 @@ class AudioModel {
             fftHelper!.performForwardFFT(withData: &timeData,
                                          andCopydBMagnitudeToBuffer: &fftData)
             
-           // windowedData = getWindowedFrequency()
+            windowedData = getWindowedFrequency()
         }
     }
     
-   
+    @objc
+    private func runEveryIntervalOutput(){
+        if outputBuffer != nil {
+            // copy data to swift array
+            self.outputBuffer!.fetchFreshData(&timeData, withNumSamples: Int64(BUFFER_SIZE))
+            
+            // now take FFT and display it
+            fftHelper!.performForwardFFT(withData: &timeData,
+                                         andCopydBMagnitudeToBuffer: &fftData)
+            
+            windowedData = getWindowedFrequency()
+        }
+    }
     
     //==========================================
     // MARK: Audiocard Callbacks

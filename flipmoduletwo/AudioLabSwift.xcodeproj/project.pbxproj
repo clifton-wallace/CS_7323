@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492F265C2CA6935F0055A218 /* orion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 492F265A2CA6935F0055A218 /* orion.mp3 */; };
 		4965EC682CA643DF006A2605 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965EC672CA643DF006A2605 /* LaunchViewController.swift */; };
 		B65B5A5A24F4409F00E74E73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B5A5924F4409F00E74E73 /* AppDelegate.swift */; };
 		B65B5A5C24F4409F00E74E73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B5A5B24F4409F00E74E73 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492F265A2CA6935F0055A218 /* orion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = orion.mp3; sourceTree = "<group>"; };
 		4965EC672CA643DF006A2605 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B65B5A5624F4409F00E74E73 /* AudioLabSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioLabSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65B5A5924F4409F00E74E73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		492F265B2CA6935F0055A218 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Audio;
+			sourceTree = SOURCE_ROOT;
+		};
 		B65B5A4D24F4409F00E74E73 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +89,8 @@
 		B65B5A5824F4409F00E74E73 /* AudioLabSwift */ = {
 			isa = PBXGroup;
 			children = (
+				492F265A2CA6935F0055A218 /* orion.mp3 */,
+				492F265B2CA6935F0055A218 /* Audio */,
 				B65B5A6E24F440D600E74E73 /* Novocaine.h */,
 				B65B5A6F24F440D600E74E73 /* Novocaine.m */,
 				B65B5A7724F444CE00E74E73 /* CircularBuffer.h */,
@@ -165,6 +176,7 @@
 			files = (
 				B65B5A6624F440A100E74E73 /* LaunchScreen.storyboard in Resources */,
 				B65B5A6324F440A100E74E73 /* Assets.xcassets in Resources */,
+				492F265C2CA6935F0055A218 /* orion.mp3 in Resources */,
 				B65B5A7524F4440300E74E73 /* satisfaction.mp3 in Resources */,
 				B65B5A6124F4409F00E74E73 /* Main.storyboard in Resources */,
 			);

@@ -48,9 +48,17 @@ class MetalGraph {
         metalLayer.device = self.device
         metalLayer.pixelFormat = .bgra8Unorm
         metalLayer.framebufferOnly = true
-        metalLayer.frame = mainView.layer.frame
-        mainView.layer.insertSublayer(metalLayer, at:0)
+       // metalLayer.frame = mainView.layer.frame
+        // Set the Metal layer to take the full width of the screen but leave space at the top for controls
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        let controlHeight: CGFloat = 100  // Leave 100 points of space at the top for controls (adjustable)
         
+        // Set the frame to take the full screen, except for the top 100 points for controls
+        metalLayer.frame = CGRect(x: 0, y: controlHeight, width: screenWidth, height: screenHeight - controlHeight)
+        
+        mainView.layer.insertSublayer(metalLayer, at:0)
+       
         commandQueue = self.device.makeCommandQueue()
         
         timer = CADisplayLink(target: self, selector: #selector(gameloop))

@@ -851,7 +851,7 @@ void sessionPropertyListener(void *                  inClientData,
     // Check the number of input channels.
     // Find the number of channels
     self.numOutputChannels = (UInt32)session.outputNumberOfChannels;
-    //    self.numOutputChannels = 1;
+    //self.numOutputChannels = 1;
     NSLog(@"We've got %u output channels", (unsigned int)self.numOutputChannels);
     
     

@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201" y="-805"/>
+            <point key="canvasLocation" x="1198.5507246376812" y="-805.58035714285711"/>
         </scene>
         <!--Launch Screen-->
         <scene sceneID="OZc-En-cRD">
@@ -37,14 +37,14 @@
                             <tableViewSection id="5cY-8d-CI6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gmb-cb-KwK">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gmb-cb-KwK" id="ai6-CK-wAu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpZ-7e-nuB">
-                                                    <rect key="frame" x="10" y="5" width="394" height="35"/>
+                                                    <rect key="frame" x="10" y="5" width="394" height="35.5"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Launch"/>
                                                     <connections>
@@ -61,7 +61,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ksJ-O4-zdL">
-                                        <rect key="frame" x="0.0" y="95" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="95.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ksJ-O4-zdL" id="Eyf-Ey-h2o">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -69,7 +69,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hjX-6i-AXF">
-                                        <rect key="frame" x="0.0" y="138.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="139" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hjX-6i-AXF" id="uey-69-rNy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
