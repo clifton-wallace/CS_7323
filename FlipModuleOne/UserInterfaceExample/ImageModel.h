@@ -17,7 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(UIImage*)getImageWithName:(NSString*)name;
 
-@property (strong, nonatomic) NSArray* imageNames;
+//1.3 - Add New Public Methods
+-(UIImage*)getImageWithIndex:(NSInteger)index;
+
+-(NSInteger)numberOfImages;
+
+-(NSString*)getImageNameForIndex:(NSInteger)index;
 
 @end
 

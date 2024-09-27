@@ -1,40 +1,35 @@
-//
-//  ImageModel.m
-//  UserInterfaceExample
-//
-//  Created by Eric Larson on 9/2/20.
-//  Copyright © 2020 Eric Larson. All rights reserved.
-//
+#import "FlowerModel.h"
 
-#import "ImageModel.h"
+@implementation FlowerModel
 
-@implementation ImageModel
-@synthesize imageNames = _imageNames;
-
-+(ImageModel*)sharedInstance{
-    static ImageModel* _sharedInstance = nil;
-    static dispatch_once_t predicate;
-    
-    dispatch_once(&predicate, ^{
-        _sharedInstance = [[ImageModel alloc] init];
-    } );
-    return _sharedInstance;
-}
-
--(NSArray*) imageNames{
-    if(!_imageNames)
-        _imageNames = @[@"Bill",@"Eric",@"Jeff"];
-    
-    return _imageNames; 
-}
-
-
--(UIImage*)getImageWithName:(NSString*)name{
-    UIImage* image = nil;
-    
-    image = [UIImage imageNamed:name];
-    
-    return image;
+- (instancetype)initWithName:(NSString *)name
+                        type:(NSString *)type
+                       image:(UIImage *)image {
+    self = [super init];
+    if (self) {
+        _name = name;
+        _type = type;
+        _image = image;
+    }
+    return self;
 }
 
 @end
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@interface FlowerModel : NSObject
+
+@property (nonatomic, strong) NSString *name;    // stores name of the flower
+@property (nonatomic, strong) NSString *type;    // stores the type/category of the flower
+@property (nonatomic, strong) UIImage *image;    // stores the image of the flower
+
+- (instancetype)initWithName:(NSString *)name
+                        type:(NSString *)type
+                       image:(UIImage *)image;
+
+@end
+
+
+git rm --cached ProjectFolder.xcodeproj/project.xcworkspace/xcuserdata/cwallace5150.xcuserdatad/UserInterfaceState.xcuserstate
